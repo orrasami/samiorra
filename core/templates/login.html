@@ -1,0 +1,55 @@
+{% load static %}
+{% load bootstrap4 %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sami Orra - Login</title>
+    {% bootstrap_css %}
+
+    <link rel="shortcut icon" href="{% static 'media/favicon.gif' %}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Basic&display=swap" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+
+        <div class="container">
+            <div class="d-flex justify-content-center">
+              <div style="margin-top: 10px">
+                  <div style="magin: 0px; margin-bottom: 0px"></div>
+                  <h1 class="logo_1" style="margin: 10px 0px -10px 0px; font-size: 80px;">
+                      SAMI</h1>
+                  <h1 class="logo_1" style="margin: -10px 0px -5px; font-size: 80px;">
+                      ORRA /</h1>
+                  <h2 class="logo_2" style="margin-left: 3px; font-size: 18px;">
+                      l o g i n /</h2>
+              </div>
+            </div>
+            {% bootstrap_messages %}
+            <form action="{% url 'login' %}" method="post" class="form" autocomplete="off">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="usuario" class="form-label">Usuario</label>
+                    <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Senha">
+                </div>
+                {% buttons %}
+                    <br>
+                    <button type="submit" id="submit" class="btn btn-primary col-12">LOGIN</button>
+                {% endbuttons %}
+            </form>
+            <br>
+            <a href="{% url 'index' %}" class="btn btn-outline-danger col-12" >VOLTAR</a>
+        </div>
+
+</body>
+</html>

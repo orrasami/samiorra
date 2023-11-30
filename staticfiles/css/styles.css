@@ -1,0 +1,27 @@
+body {
+	background-color: black;
+}
+
+/* LOGO */
+.logo_1 {
+    font-size: 60px;
+    font-family: 'Anton', sans-serif;
+    color: #FFD232
+}
+.logo_2 {
+    font-size: 15px;
+    font-family: 'Basic', sans-serif;
+    color: white;
+}
+
+/* PACKERY */
+/* Style the grid container */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 6px;
+}
+
+/* Style the grid items */
+.grid-item {
+  margin-bottom: 1px;

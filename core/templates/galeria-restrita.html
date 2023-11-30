@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+{% load static %}
+
+{%block 'titulo'%}  Sami Orra / {{ galeria_nome }} {%endblock%}
+
+{%block 'body'%}
+<div class="container galeria-mobile">
+    {% if fotos %}
+        <div class="row align-items-center">
+            {% for foto in fotos %}
+                {% if foto.galeria_id == galeria_id %}
+                    <div class="coluna-galeria_unica">
+                        <div class="d-flex justify-content-center">
+                            <img src="{{ foto.imagem.url }}" class="img-fluid align-self-center" alt="{{ foto.nome }}" oncontextmenu="return false;">
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    <a href="{% url 'restrito' %}" class="btn btn-primary col-12 btn-lg">VOLTAR</a>
+    <br>
+    <br>
+    <br>
+</div>
+
+{%endblock%}

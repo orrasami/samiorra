@@ -1,0 +1,116 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{%block 'titulo'%}{%endblock%} </title>
+    {% bootstrap_css %}
+
+    <link rel="shortcut icon" href="{% static 'media/favicon.gif' %}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Basic&display=swap" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+      <div class="container nav-mobile">
+        <!-- Logo -->
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <div style="margin-top: 10px">
+              <div style="magin: 0px; margin-bottom: 0px"></div>
+              <h1 class="logo_1" style="margin: -10px 0px;">
+                  SAMI</h1>
+              <h1 class="logo_1" style="margin: -10px 0px -5px;">
+                  ORRA /</h1>
+              <h2 class="logo_2" style="margin-left: 3px;">
+                  f o t o g r a f i a /</h2>
+          </div>
+        </a>
+
+        <!-- Navbar Toggler -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Items -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        {% if usuario_logado == 'SAMI' %}
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                {% bootstrap_messages %}
+                <a class="btn btn-warning col-lg-12 btn-lg" aria-current="page" href="{% url 'restrito' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ÁREA RESTRITA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            </li>
+          </ul>
+        {% endif %}
+          <ul class="navbar-nav ml-auto">
+            <!-- Logout Button -->
+            <li class="nav-item">
+              <form method="post" action="{% url 'index' %}">
+                {% csrf_token %}
+                  <br class="break">
+                  {% if usuario_logado == None %}
+                  <a href="#modal" data-toggle="modal" class="btn btn-dark desktop-only" >LOGIN</a>
+                  <a href="{% url 'login' %}" class="btn btn-dark mobile-only btn-lg" >LOGIN</a>
+
+                    <div class="modal fade bd-example-modal-lg show" id="modal" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" id="dynamic-content">
+                                    <div class="container">
+                                        <div class="d-flex justify-content-center">
+                                          <div style="margin-top: 10px">
+                                              <div style="magin: 0px; margin-bottom: 0px"></div>
+                                              <h1 class="logo_1" style="margin: -10px 0px;">
+                                                  SAMI</h1>
+                                              <h1 class="logo_1" style="margin: -10px 0px -5px;">
+                                                  ORRA /</h1>
+                                              <h2 class="logo_2" style="margin-left: 3px;">
+                                                  l o g i n /</h2>
+                                          </div>
+                                        </div>
+                                        <form action="{% url 'index' %}" method="post" class="form" autocomplete="off">
+                                            {% csrf_token %}
+                                            <div class="mb-3">
+                                                <label for="usuario" class="form-label">Usuario</label>
+                                                <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="password" class="form-label">Senha</label>
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="Senha">
+                                            </div>
+                                            {% buttons %}
+                                                <br>
+                                                <button type="submit" id="submit" class="btn btn-primary col-12">LOGIN</button>
+                                            {% endbuttons %}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  {% else %}
+                  <a href="{% url 'logout' %}" class="btn btn-outline-danger btn-lg col-lg-12" >LOGOUT</a>
+                  {% endif %}
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {%block 'body'%}{%endblock%}
+{% bootstrap_javascript jquery='full' %}
+<script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+</script>
+</body>
+</html>

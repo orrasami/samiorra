@@ -1,0 +1,133 @@
+body {
+	background-color: white;
+}
+
+/* NAV */
+.break {  /* <BR> PARA BAIXAR O LOGOUT TO TOGGLE NA VERSÃO MOBILE */
+    display: none;
+}
+
+/* LOGO */
+.logo_1 {
+    font-size: 60px;
+    font-family: 'Anton', sans-serif;
+    color: #FFD232
+}
+.logo_2 {
+    font-size: 15px;
+    font-family: 'Basic', sans-serif;
+    color: black;
+}
+
+/* GALERIA */
+.coluna-galeria{
+    width: 33.3%; /*ALTERAR O VALOR PARA SELECIONAR QUANTAR COLUNAS A GALERIA VAI TER. */
+    padding: 5px;
+}
+
+.coluna-galeria_unica{
+    width: 100%; /*ALTERAR O VALOR PARA SELECIONAR QUANTAR COLUNAS A GALERIA VAI TER. */
+    padding: 5px;
+    padding-bottom: 140px;
+}
+
+.coluna-galeria {
+  position: relative;
+}
+
+.coluna-galeria img {
+  display: block;
+  max-width: 100%;
+}
+
+.coluna-galeria .titulo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 5px 10px;
+  font-family: 'Basic', sans-serif;
+  transition: background-color 0.5s ease-in-out, color 1.5s ease-in-out;
+}
+
+.coluna-galeria .titulo:hover {
+  background-color: rgba(255, 210, 50, 0.3);
+  transition: background-color 0.5s ease-in-out, color 1.5s ease-in-out;
+}
+/* BOTÃO LOGIN */
+.mobile-only { /* BOTÃO DE LOGIN É DIFERENTE PARA VERSÃO DESKTOP E MOBILE. NA MOBILE ELE DIRECIONA PARA OUTRA PAGINA. NA DESKTOP ELE ABRE UM MODAL */
+    display: none;
+}
+
+.desktop-only { /* BOTÃO DE LOGIN É DIFERENTE PARA VERSÃO DESKTOP E MOBILE. NA MOBILE ELE DIRECIONA PARA OUTRA PAGINA. NA DESKTOP ELE ABRE UM MODAL */
+    display: block;
+}
+
+/*GALERIA INICIAL*/
+
+@media (max-width: 991px) {
+    /* LOGO NA VERSÃO MOBILE - TEM QUE FICAR MAIOR PARA FICAR PROPORCIONAL*/
+    .logo_1 {
+        font-size: 120px;
+    }
+    .logo_2 {
+        font-size: 30px;
+    }
+
+    /* NAV */
+    .navbar-toggler {
+        font-size: 5rem; /* ALTERAR AQUI PARA MUDAR O TAMANHO DO TOGGLE */
+        padding: 0.5rem;
+        border-radius: 15px;
+    }
+
+    .break { /* <BR> PARA BAIXAR O LOGOUT TO TOGGLE NA VERSÃO MOBILE */
+        display: block;
+    }
+
+    .nav-mobile {  /* ALTERA AS MARGENS DO NAV POIS NA VERSÃO MOBILE NÃO FICA BOM COM MARGEM POIS NÃO TEM ESPAÇO */
+        margin: 20px 20px 20px 20px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .mobile-only {  /* BOTÃO DE LOGIN É DIFERENTE PARA VERSÃO DESKTOP E MOBILE. NA MOBILE ELE DIRECIONA PARA OUTRA PAGINA. NA DESKTOP ELE ABRE UM MODAL */
+        display: block;
+    }
+    .desktop-only { /* BOTÃO DE LOGIN É DIFERENTE PARA VERSÃO DESKTOP E MOBILE. NA MOBILE ELE DIRECIONA PARA OUTRA PAGINA. NA DESKTOP ELE ABRE UM MODAL */
+        display: none;
+    }
+
+    .btn-lg {  /* AUMENTA O TAMANHO DOS BOTÕES LOGIN, LOGOUT E RESTRITO PARA APARECER DE FORMA LEGIVEL NA VERSÃO MOBILE. */
+        font-size: 3rem;
+    }
+    /* GALERIA */
+    .coluna-galeria {  /* NA VERSÃO MOBILE NÃO FAZ SENTIDO FICAR COM DUAS OU MAIS COLUNAS NA GALERIA. AS FOTOS FICAM MUITO PEQUENAS */
+        width: 100%;
+        padding: 5px;
+    }
+
+    .galeria-mobile {  /* NA VERSÃO MOBILE NÃO FAZ SENTIDO FICAR COM DUAS OU MAIS COLUNAS NA GALERIA. AS FOTOS FICAM MUITO PEQUENAS */
+        margin: 20px 0px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .foto-mobile {  /* PARA QUE TODAS AS FOTOS FIQUEM ALINHADAS E NÃO UMA MAIOR DO QUE A OUTRA */
+        width: 100% !important;
+    }
+
+    .d-flex{
+        flex-direction: column;
+    }
+
+    .coluna-galeria .titulo {
+        font-size: 80px;
+    }
+
+}

@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+{% load static %}
+
+{%block 'titulo'%}  Sami Orra / Restrito {%endblock%}
+
+{%block 'body'%}
+<div class="container" style="margin: 20px 0px; width: 100%; max-width: 100%">
+    {% if fotos %}
+        <div class="row align-items-center">
+            {% for foto in fotos %}
+                {% if foto.galeria_id == 2 %}
+                    <div class="coluna-galeria">
+                        <div class="d-flex justify-content-center">
+                            <img src="{{ foto.imagem.url }}" class="img-fluid align-self-center" alt="{{ foto.nome }}" oncontextmenu="return false;"/>
+                            <a href="{% url 'galeria-restrita' foto.nome %}"><div class="titulo d-flex justify-content-center align-items-center">{{ foto.nome }}</div></a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+{%endblock%}
